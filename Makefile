@@ -1,7 +1,7 @@
 default: build
 
 build: editor.go go.mod
-	go build . 
+	go build -ldflags "-w -s" .  
 
 run: build 
 	./bed
