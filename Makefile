@@ -9,8 +9,3 @@ run: build
 clean:
 	rm bed
 
-install: build
-	cp bed /usr/local/bin
-
-uninstall:
-	rm /usr/local/bin/bed

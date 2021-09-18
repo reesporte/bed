@@ -32,6 +32,16 @@ func main() {
 
 	cmd := ""
 	text := ""
+	textWrittenToFile := ""
+	usage := `
+        how to use bed:
+            press i for insert mode
+            press w to write to file
+            press r to reset current text buffer
+            press p to print current text buffer
+            press f to print all that's been written to file so far
+            press enter to quit current function
+`
 
 	scn := bufio.NewScanner(os.Stdin)
 
@@ -53,6 +63,7 @@ func main() {
 				os.Exit(1)
 			}
 			f.Sync()
+			textWrittenToFile += text
 			text = ""
 		case cmd == "r":
 			// reset current text value
@@ -62,7 +73,10 @@ func main() {
 			fmt.Print(text)
 		case cmd == "h":
 			// print help message
-			fmt.Println("how to use `bed`:\npress i for insert mode\npress w to write to file\npress r to reset current text buffer\npress p to print current text buffer\npress enter to quit current function")
+			fmt.Println(usage)
+		case cmd == "f":
+			// print everything that's been written to file so far
+			fmt.Print(textWrittenToFile)
 		default:
 			// anything we don't recognize
 			fmt.Println("?")

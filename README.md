@@ -3,14 +3,15 @@
 it's like ed except more bad
 
 ## how to install
-`make install`
+`go install`
 
 ## how to use
 `bed <filename>`
 
-* enter "insert mode": press `i`
-* exit insert mode: enter a blank newline (no spaces)
-* print the current text buffer: press `p`
-* reset the current text buffer: press `r`
-* write the current buffer to file: press `w`
-* quit: enter a blank newline (no spaces)
+press i for insert mode
+press w to write to file
+press r to reset current text buffer
+press p to print current text buffer
+press f to print all that's been written to file so far
+press enter to quit current function
+
